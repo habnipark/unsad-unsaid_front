@@ -20,7 +20,7 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-size: 0.9em; /* 기본 폰트 크기를 90%로 설정 */
+    font-size: 1em; /* 기본 폰트 크기를 100%로 설정 */
     background-color: var(--background-color-light);
     color: var(--text-color-light);
     margin: 0;
@@ -29,8 +29,6 @@ body {
     align-items: center;
     height: 100vh;
     transition: background-color 0.3s, color 0.3s;
-    transform: scale(1.2); /* 배율을 1.2로 설정 */
-    transform-origin: top center; /* 배율 기준점을 상단 중앙으로 설정 */
 }
 
 body.dark-mode {
@@ -98,7 +96,7 @@ textarea {
     flex: 1;
     border: none;
     outline: none;
-    font-size: 0.9em; /* 폰트 크기를 90%로 조정 */
+    font-size: 1em; /* 폰트 크기를 100%로 조정 */
     resize: none;
     height: 2.25em; /* 초기 높이를 한글 4글자 높이에 맞춤 */
     max-height: 10em; /* 최대 높이 설정 */
@@ -135,7 +133,7 @@ button {
     border: none;
     border-radius: 0.625em; /* 10px을 em 단위로 변경 */
     cursor: pointer;
-    font-size: 0.9em; /* 폰트 크기를 90%로 조정 */
+    font-size: 1em; /* 폰트 크기를 100%로 조정 */
     margin-left: 0.625em; /* 10px을 em 단위로 변경 */
     height: 2.25em; /* 버튼 높이 고정 */
     display: flex;
@@ -170,7 +168,7 @@ button:focus {
 .bubble {
     padding: 0.625em 1.25em; /* 10px 20px을 em 단위로 변경 */
     border-radius: 1.25em; /* 20px을 em 단위로 변경 */
-    font-size: 0.9em; /* 폰트 크기를 90%로 조정 */
+    font-size: 1em; /* 폰트 크기를 100%로 조정 */
     line-height: 1.4;
 }
 
@@ -200,7 +198,7 @@ body.dark-mode .message.bot .bubble {
     background-color: var(--bubble-bot-bg);
     color: var(--bubble-bot-text);
     border-radius: 1.25em; /* 20px을 em 단위로 변경 */
-    font-size: 0.9em; /* 폰트 크기를 90%로 조정 */
+    font-size: 1em; /* 폰트 크기를 100%로 조정 */
     line-height: 1.4;
     width: fit-content;
     height: 2.5em; /* 높이 자동 */
