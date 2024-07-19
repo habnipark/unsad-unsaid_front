@@ -29,6 +29,8 @@ body {
     align-items: center;
     height: 100vh;
     transition: background-color 0.3s, color 0.3s;
+    transform: scale(1.2); /* 배율을 1.2로 설정 */
+    transform-origin: top center; /* 배율 기준점을 상단 중앙으로 설정 */
 }
 
 body.dark-mode {
