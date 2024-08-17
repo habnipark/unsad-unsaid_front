@@ -1,3 +1,5 @@
+const backendUrl = 'https://port-0-unsad-unsaid-back-lyt7bu192d19b53c.sel4.cloudtype.app'
+
 // 이벤트 리스너: 'Send' 버튼 클릭 시 메시지 전송
 document.getElementById('send-button').addEventListener('click', sendMessage);
 
@@ -35,7 +37,7 @@ function sendMessage() {
     console.log('Sending message to backend:', userInput);
 
     // 백엔드 서버에 메시지를 전송하여 ChatGPT 응답 요청
-    fetch('https://port-0-unsad-unsaid-back-lyt7bu192d19b53c.sel4.cloudtype.app/chatbot/message', { // URL 수정
+    fetch(`${backendUrl}/chatbot/message`, { // URL 수정
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
