@@ -79,6 +79,50 @@ body {
     margin-bottom: 0.5em;
 }
 
+/* 타이핑 인디케이터 스타일 */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.3125em; /* 간격 */
+    padding: 0.5em 1.25em; /* 여백 */
+    background-color: var(--bubble-bot-bg); /* 봇 메시지 말풍선 색상 */
+    color: var(--bubble-bot-text);
+    border-radius: 1.25em; /* 둥근 모서리 */
+    border-top-left-radius: 0;
+    width: fit-content; /* 내용에 맞는 너비 */
+    animation: typing 1s steps(4) infinite; /* 타이핑 애니메이션 */
+}
+
+.typing-dot {
+    background-color: var(--bubble-bot-text);
+    border-radius: 50%;
+    width: 0.5em;
+    height: 0.5em;
+    animation: blink 1.4s infinite both; /* 깜빡이는 애니메이션 */
+}
+
+.typing-dot:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes blink {
+    0%, 80%, 100% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+}
+
+
 .input-container {
     display: flex;
     margin: 0.3em;
@@ -143,3 +187,4 @@ button:hover {
 button:focus {
     outline: none;
 }
+
