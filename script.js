@@ -1,4 +1,4 @@
-const backendUrl = 'https://port-0-unsad-unsaid-back-lyt7bu192d19b53c.sel4.cloudtype.app'
+const backendUrl = 'https://port-0-unsad-unsaid-back-lyt7bu192d19b53c.sel4.cloudtype.app';
 
 // 이벤트 리스너: 'Send' 버튼 클릭 시 메시지 전송
 document.getElementById('send-button').addEventListener('click', sendMessage);
@@ -12,12 +12,19 @@ document.getElementById('user-input').addEventListener('keypress', function (e) 
 });
 
 // textarea 높이 자동 조절
-document.getElementById('user-input').addEventListener('input', function () {
-    const lineHeight = parseFloat(getComputedStyle(this).lineHeight);
-    const padding = parseFloat(getComputedStyle(this).paddingTop) + parseFloat(getComputedStyle(this).paddingBottom);
-    this.style.height = '2.25em'; // 초기 높이로 설정
-    if (this.scrollHeight > this.clientHeight) {
-        this.style.height = Math.min((this.scrollHeight - padding) / lineHeight, 10 * 1.4) + 'em'; // 최대 높이 설정, line-height 1.4를 곱하여 em 단위로 조정
+document.getElementById('user-input').addEventListener('input', function() {
+    const textarea = this;
+    textarea.style.height = 'auto';  // 높이 자동 초기화
+    textarea.style.height = `${textarea.scrollHeight}px`;  // 내용에 맞게 높이 조절
+
+    const maxLines = 4;  // 최대 4줄까지 허용
+    const lineHeight = parseFloat(getComputedStyle(textarea).lineHeight);
+    const maxHeight = lineHeight * maxLines;
+    if (textarea.scrollHeight > maxHeight) {
+        textarea.style.overflowY = 'scroll';  // 스크롤 활성화
+        textarea.style.height = `${maxHeight}px`;  // 최대 높이 설정
+    } else {
+        textarea.style.overflowY = 'hidden';  // 스크롤 비활성화
     }
 });
 
@@ -34,24 +41,16 @@ function sendMessage() {
     // 타이핑 인디케이터 추가
     appendTypingIndicator();
 
-    console.log('Sending message to backend:', userInput);
-
     // 백엔드 서버에 메시지를 전송하여 ChatGPT 응답 요청
-    fetch(`${backendUrl}/chatbot/message`, { // URL 수정
+    fetch(`${backendUrl}/chatbot/message`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ message: userInput })
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
-        console.log('Received response from backend:', data);
         // 타이핑 인디케이터 제거
         removeTypingIndicator();
         // 백엔드 서버로부터 받은 ChatGPT 응답을 채팅 박스에 추가
