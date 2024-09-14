@@ -84,7 +84,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.3125em; /* 간격 */
-    padding: 0.5em 1.25em; /* 여백 */
+    padding: 2em 1.25em; /* 여백 */
     background-color: var(--bubble-bot-bg); /* 봇 메시지 말풍선 색상 */
     color: var(--bubble-bot-text);
     border-radius: 1.25em; /* 둥근 모서리 */
@@ -162,6 +162,8 @@ textarea {
 
 textarea::placeholder {
     color: var(--placeholder-color-dark); /* 플레이스홀더 색상 */
+    line-height: inherit; /* 줄 사이 간격을 textarea와 동일하게 설정 */
+    padding-left: 0.625em; /* padding을 텍스트와 동일하게 맞춤 */
 }
 
 button {
@@ -188,3 +190,20 @@ button:focus {
     outline: none;
 }
 
+@media (max-width: 768px) {
+    .chat-container {
+        width: 100%; /* 화면 너비에 맞게 꽉 차게 설정 */
+        height: 100vh; /* 화면 높이에 맞게 꽉 차게 설정 */
+        border-radius: 0; /* 둥근 모서리 제거하여 꽉 찬 느낌 */
+        box-shadow: none; /* 그림자 제거 */
+    }
+}
+
+@media (max-width: 480px) {
+    .chat-container {
+        width: 100%; /* 모바일 화면 너비에 맞게 조정 */
+        height: 100vh; /* 모바일 화면 높이에 맞게 조정 */
+        border-radius: 0; /* 둥근 모서리 제거 */
+        box-shadow: none; /* 그림자 제거 */
+    }
+}
