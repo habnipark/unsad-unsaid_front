@@ -33,15 +33,12 @@ function sendMessage() {
     const userInput = document.getElementById('user-input').value;
     if (userInput.trim() === '') return;
 
+    
     window.dataLayer = window.dataLayer || [];
-    console.log("dataLayer에 이벤트 추가 전:", window.dataLayer); // 이벤트 추가 전 상태 확인용 로그
-
     window.dataLayer.push({
         event: 'click_send_button',
         user_message: userInput
     });
-
-    console.log("dataLayer에 이벤트 추가 후:", window.dataLayer);  // 이벤트 추가 후 상태 확인용 로그
 
 
     // 사용자 메시지를 채팅 박스에 추가
