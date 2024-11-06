@@ -33,6 +33,12 @@ function sendMessage() {
     const userInput = document.getElementById('user-input').value;
     if (userInput.trim() === '') return;
 
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ //데이터 레이어
+        event: 'click_send_button',
+        user_message: userInput
+    });
+
     // 사용자 메시지를 채팅 박스에 추가
     appendMessage('user', userInput);
     document.getElementById('user-input').value = '';
